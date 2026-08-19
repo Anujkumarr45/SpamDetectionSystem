@@ -15,25 +15,7 @@ The application provides a simple user interface for checking SMS messages and a
 - 🔎 Easy-to-use message checking interface
 - 🎨 Clean and responsive web interface
 
-## 🖥️ Screenshots
 
-### 🔐 Login Page
-
-![Login Page](screenshots/login.png)
-
-### 📊 Dashboard
-
-![Dashboard](screenshots/dashboard.png)
-
-### 📩 SMS Detector
-
-![SMS Detector](screenshots/detector.png)
-
-### 🚨 Spam Prediction
-
-![Spam Prediction](screenshots/spam-result.png)
-
-> More screenshots will be added as the project is updated.
 
 ## 🧠 How It Works
 
@@ -148,3 +130,6 @@ GitHub: [@Anujkumarr45](https://github.com/Anujkumarr45)
 
 ### 📊 Dashboard
 ![Dashboard](screenshots/dashboard.png.png)
+
+
+> More screenshots will be added as the project is updated.
