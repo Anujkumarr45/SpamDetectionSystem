@@ -129,3 +129,22 @@ GitHub: [@Anujkumarr45](https://github.com/Anujkumarr45)
 ---
 
 ⭐ If you find this project useful, consider giving it a star!
+
+
+
+## 📸 Screenshots
+
+### 🔐 Login Page
+![Login Page](screenshots/login.png.png)
+
+### 📝 Signup Page
+![Signup Page](screenshots/signup.png.png)
+
+### 🔍 Spam Detector
+![Spam Detector](screenshots/detector.png.png)
+
+### 🚨 Spam Result
+![Spam Result](screenshots/spam-result.png.png)
+
+### 📊 Dashboard
+![Dashboard](screenshots/dashboard.png.png)
