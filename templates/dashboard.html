@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - Spam Detection System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body class="dashboard-body">
+
+    <div class="dashboard-container">
+
+
+        <!-- Dashboard Header -->
+        <div class="dashboard-header">
+
+            <h1>
+                🛡️ Spam Detection Dashboard
+            </h1>
+
+            <p>
+                Welcome, <strong>{{ username }}</strong> 👋
+            </p>
+
+        </div>
+
+
+        <!-- Statistics -->
+        <div class="stats-container">
+
+
+            <!-- Total Messages -->
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📩
+                </div>
+
+                <h3>
+                    Total Messages
+                </h3>
+
+                <p class="stat-number">
+                    {{ total_messages }}
+                </p>
+
+            </div>
+
+
+            <!-- Spam Messages -->
+            <div class="stat-card spam-card">
+
+                <div class="stat-icon">
+                    🚨
+                </div>
+
+                <h3>
+                    Spam Messages
+                </h3>
+
+                <p class="stat-number">
+                    {{ spam_messages }}
+                </p>
+
+            </div>
+
+
+            <!-- Ham Messages -->
+            <div class="stat-card ham-card">
+
+                <div class="stat-icon">
+                    ✅
+                </div>
+
+                <h3>
+                    Ham Messages
+                </h3>
+
+                <p class="stat-number">
+                    {{ ham_messages }}
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Additional Information -->
+        <div class="info-container">
+
+
+            <!-- Spam Percentage -->
+            <div class="info-card">
+
+                <h3>
+                    📊 Spam Percentage
+                </h3>
+
+                <p class="percentage">
+                    {{ spam_percentage }}%
+                </p>
+
+            </div>
+
+
+            <!-- Model Accuracy -->
+            <div class="info-card">
+
+                <h3>
+                    🤖 Model Accuracy
+                </h3>
+
+                <p class="percentage">
+                    {{ model_accuracy }}%
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Main Action -->
+        <div class="dashboard-actions">
+
+            <a href="{{ url_for('sms_detector') }}"
+               class="dashboard-btn">
+
+                🔍 Check New Message
+
+            </a>
+
+        </div>
+
+
+        <!-- Logout -->
+        <div class="dashboard-logout">
+
+            <a href="{{ url_for('logout') }}">
+                Logout
+            </a>
+
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>

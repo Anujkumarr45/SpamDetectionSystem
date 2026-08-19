@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SMS Detector</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="sms-body">
+
+    <div class="sms-container">
+
+        <!-- App Title -->
+        <h1 class="app-title">
+            Spam Detection System
+        </h1>
+
+        <!-- Page Title -->
+        <h2 class="sms-title">
+            SMS Detector
+        </h2>
+
+        <!-- Message Form -->
+        <form method="POST" class="sms-form">
+
+            <textarea
+                name="message"
+                placeholder="Enter your SMS message here..."
+                required></textarea>
+
+            <button type="submit" class="sms-btn">
+                🔍 Check Message
+            </button>
+
+        </form>
+
+
+        <!-- Error Message -->
+        {% if error %}
+        <div class="error-box">
+            <p>{{ error }}</p>
+        </div>
+        {% endif %}
+
+
+        <!-- Prediction Result -->
+        {% if prediction %}
+
+        <div class="result-box">
+
+            {% if prediction == "Spam" %}
+
+            <h3>🚨 SPAM MESSAGE</h3>
+
+            <p>
+                <strong>Prediction:</strong>
+                <span class="spam-result">
+                    {{ prediction }}
+                </span>
+            </p>
+
+            {% else %}
+
+            <h3>✅ SAFE MESSAGE</h3>
+
+            <p>
+                <strong>Prediction:</strong>
+                <span class="ham-result">
+                    {{ prediction }}
+                </span>
+            </p>
+
+            {% endif %}
+
+            <p>
+                <strong>Confidence:</strong>
+                {{ confidence }}%
+            </p>
+
+        </div>
+
+        {% endif %}
+
+
+        <!-- Dashboard Button -->
+        <p class="dashboard-link">
+            <a href="{{ url_for('dashboard') }}">
+                ← Dashboard
+            </a>
+        </p>
+
+
+        <!-- Logout -->
+        <p class="logout-link">
+            <a href="{{ url_for('logout') }}">
+                Logout
+            </a>
+        </p>
+
+    </div>
+
+</body>
+</html>
