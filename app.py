@@ -1,3 +1,4 @@
+```python
 from flask import Flask, render_template, request, redirect, url_for, session
 from pymongo import MongoClient
 from dotenv import load_dotenv
@@ -19,6 +20,9 @@ app.secret_key = os.getenv("SECRET_KEY", "your_secret_key")
 # MongoDB Atlas Connection
 # =========================
 MONGO_URI = os.getenv("MONGO_URI")
+
+if not MONGO_URI:
+    raise ValueError("MONGO_URI is not set in environment variables!")
 
 client = MongoClient(MONGO_URI)
 
@@ -237,3 +241,4 @@ def logout():
 # =========================
 if __name__ == "__main__":
     app.run(debug=True)
+```
