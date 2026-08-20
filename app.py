@@ -1,17 +1,27 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from pymongo import MongoClient
+from dotenv import load_dotenv
 import pickle
+import os
 
 app = Flask(__name__)
 
+# =========================
+# Load Environment Variables
+# =========================
+load_dotenv()
+
 # Secret key for session
-app.secret_key = "your_secret_key"
+app.secret_key = os.getenv("SECRET_KEY", "your_secret_key")
 
 
 # =========================
-# MongoDB Connection
+# MongoDB Atlas Connection
 # =========================
-client = MongoClient("mongodb://localhost:27017/")
+MONGO_URI = os.getenv("MONGO_URI")
+
+client = MongoClient(MONGO_URI)
+
 db = client["spam_detector_db"]
 
 users = db["users"]
