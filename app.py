@@ -1,4 +1,3 @@
-```python
 from flask import Flask, render_template, request, redirect, url_for, session
 from pymongo import MongoClient
 from dotenv import load_dotenv
@@ -64,11 +63,11 @@ def signup():
         password = request.form.get("password", "")
 
         if not username or not password:
-            return "⚠️ Username and password are required!"
+            return "Username and password are required!"
 
         # Check if username already exists
         if users.find_one({"username": username}):
-            return "⚠️ Username already exists!"
+            return "Username already exists!"
 
         # Save user
         users.insert_one({
@@ -100,10 +99,9 @@ def login():
         if user:
             session["user"] = username
 
-            # Login ke baad Dashboard open hoga
             return redirect(url_for("dashboard"))
 
-        return "❌ Invalid username or password!"
+        return "Invalid username or password!"
 
     return render_template("login.html")
 
@@ -152,7 +150,6 @@ def dashboard():
 
     model_accuracy = round(accuracy * 100, 2)
 
-    # Send data to dashboard.html
     return render_template(
         "dashboard.html",
         username=username,
@@ -174,7 +171,6 @@ def sms_detector():
     if "user" not in session:
         return redirect(url_for("login"))
 
-    # Default values
     prediction = None
     confidence = None
 
@@ -207,9 +203,7 @@ def sms_detector():
         probabilities = model.predict_proba(data)[0]
         confidence = max(probabilities) * 100
 
-        # =========================
-        # Save Prediction to MongoDB
-        # =========================
+        # Save prediction to MongoDB
         predictions.insert_one({
             "username": session["user"],
             "message": message,
@@ -241,4 +235,3 @@ def logout():
 # =========================
 if __name__ == "__main__":
     app.run(debug=True)
-```
